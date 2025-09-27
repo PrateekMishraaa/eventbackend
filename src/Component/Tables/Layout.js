@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const drawerWidth = 240;
 
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
 const Layout = ({ children }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('Pledge');
@@ -22,7 +23,7 @@ const Layout = ({ children }) => {
 
   const logoutHandler = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/logout');
+      const res = await axios.post(`${REACT_APP_API_BASE_URL}/api/auth/logout`);
       if (res.status === 200) {
         localStorage.removeItem('district');
         localStorage.removeItem('state');

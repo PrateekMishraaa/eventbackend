@@ -3,6 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './Register.module.css'; // <-- CSS module import
 
+
+
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
+
+
 const Register = () => {
   const [email, setEmail] = useState('');
   const [state, setState] = useState('');
@@ -16,7 +21,7 @@ const Register = () => {
 
   try {
     const res = await axios.post(
-      `${process.env.REACT_APP_API_BASE_URL}/auth/register`,
+      `${REACT_APP_API_BASE_URL}/auth/register`,
       // "http://localhost:5000/api/auth/register",
       {
         email,

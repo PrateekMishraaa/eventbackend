@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'; 
 import axios from 'axios';
 
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +17,7 @@ const Login = () => {
 
 try {
   const res = await axios.post(
-    `${process.env.REACT_APP_API_BASE_URL}/auth/login`,
+    `${REACT_APP_API_BASE_URL}/auth/login`,
       // "http://localhost:5000/api/auth/login",
     {
       email,

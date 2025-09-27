@@ -59,7 +59,7 @@ const VideoPreview = ({ videos, onRemove, handleOpen }) => (
 );
 
 // Mock BASE_URL
-const REACT_APP_API_BASE_URL = "http://localhost:5000/api";
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com/";
 
 const dummyImages = [
   { url: "https://via.placeholder.com/150", alt: "Image1", type: "image/jpeg" },

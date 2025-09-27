@@ -25,7 +25,7 @@ const getFileUrl = (path) => {
 function TabPanel({ children, value, index }) {
   return <div hidden={value !== index}>{value === index && <Box sx={{ p: 2 }}>{children}</Box>}</div>;
 }
-
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
 const Eventlist = () => {
   const district = localStorage.getItem("district") || "";
   const state = localStorage.getItem("state") || "";
@@ -58,7 +58,7 @@ const Eventlist = () => {
   // Fetch data
 const fetchData = useCallback(async () => {
   try {
-    const res = await axios.get("http://localhost:5000/api/register/alldata");
+    const res = await axios.get(`${REACT_APP_API_BASE_URL}/api/register/alldata`);
 
     const temp = (res.data?.data || []).map((item) => ({
       id: item._id,

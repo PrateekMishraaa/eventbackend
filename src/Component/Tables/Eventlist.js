@@ -19,7 +19,8 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import SchoolRegistrationForm from "../Tables/ReportGenerator"; // Import your form component
 import { REACT_API_BASE_URL } from "../../utlis/helper";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
 
 
 // Utility to handle file URLs
@@ -1161,7 +1162,7 @@ if (role === "admin") {
               <Button
                 onClick={async () => {
                   try {
-                    await axios.put(`http://localhost:5000/api/updateEmailAndNumberById/${editRow.id}`, {
+                    await axios.put(`https://eventbackend2.onrender.com/updateEmailAndNumberById/${editRow.id}`, {
                       email: editRow.email,
                       teacherContact: editRow.teacherContact,
                     });
