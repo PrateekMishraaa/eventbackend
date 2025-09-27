@@ -19,7 +19,7 @@ const Login = () => {
 
 try {
   const res = await axios.post(
-    `${REACT_APP_API_BASE_URL}/auth/login`,
+    `${REACT_APP_API_BASE_URL}/api/auth/login`,
       // "http://localhost:5000/api/auth/login",
     {
       email,
