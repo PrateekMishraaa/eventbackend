@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css'; 
 import axios from 'axios';
 
-const REACT_APP_API_BASE_URL = "https://eventbackend2.onrender.com";
+const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://eventbackend2.onrender.com";
 
 const Login = () => {
   const [email, setEmail] = useState('');
