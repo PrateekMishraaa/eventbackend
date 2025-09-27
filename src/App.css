@@ -1,0 +1,7 @@
+.hover-effect {
+  transition: border-color 0.3s ease-in-out;
+}
+
+.hover-effect:hover {
+  border: 2px solid #099bff;
+}
