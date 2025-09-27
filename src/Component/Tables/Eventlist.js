@@ -152,11 +152,11 @@ const fetchData = useCallback(async () => {
 
 
 if (role === "admin") {
-  apiUrl = `${BASE_URL}/register/alldata`;
+  apiUrl = `${REACT_API_BASE_URL}/register/alldata`;
   // apiUrl = "http://localhost:5000/api/register/alldata";
 } else if (role === "subadmin") {
   const district = "delhi"; // Replace with actual district dynamically
-  apiUrl = `${BASE_URL}/subadmindata?district=${encodeURIComponent(district)}`;
+  apiUrl = `${REACT_API_BASE_URL}/subadmindata?district=${encodeURIComponent(district)}`;
       // apiUrl = `http://localhost:5000/api/subadmindata?district=${district}`;
 } else {
   console.error("Unknown role:", role);
