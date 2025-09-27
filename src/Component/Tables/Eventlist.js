@@ -1210,7 +1210,8 @@ import SchoolRegistrationForm from "../Tables/ReportGenerator"; // Import your f
 import { REACT_API_BASE_URL } from "../../utlis/helper";
 
 // Use the correct API base URL
-const API_BASE_URL = "https://eventbackend2.onrender.com";
+const REACT_APP_API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://eventbackend2.onrender.com";
+
 
 // Utility to handle file URLs
 export const getFileUrl = (path) => {
@@ -1219,12 +1220,12 @@ export const getFileUrl = (path) => {
   // If already valid http but contains C:/Users, strip local path part
   if (path.startsWith("http") && path.includes("/uploads/")) {
     const relativePath = path.split("/uploads/")[1];
-    return `${API_BASE_URL}/uploads/${relativePath}`;
+    return `${REACT_API_BASE_URL}/uploads/${relativePath}`;
   }
 
   return path.startsWith("http")
     ? path
-    : `${API_BASE_URL}/${path.replace(/\\/g, "/").replace(/^\/+/, "")}`;
+    : `${REACT_API_BASE_URL}/${path.replace(/\\/g, "/").replace(/^\/+/, "")}`;
 };
 
 function TabPanel({ children, value, index }) {
@@ -1277,10 +1278,10 @@ const PledgeTable = () => {
       let apiUrl = "";
 
       if (role === "admin") {
-        apiUrl = `${API_BASE_URL}/api/register/alldata`;
+        apiUrl = `${REACT_API_BASE_URL}api/register/alldata`;
       } else if (role === "subadmin") {
         const userDistrict = district || "delhi"; // Use the district from localStorage or fallback
-        apiUrl = `${API_BASE_URL}/api/subadmindata?district=${encodeURIComponent(userDistrict)}`;
+        apiUrl = `${REACT_API_BASE_URL}api/subadmindata?district=${encodeURIComponent(userDistrict)}`;
       } else {
         console.error("Unknown role:", role);
         setError("Invalid user role");
@@ -2130,7 +2131,7 @@ const PledgeTable = () => {
               <Button
                 onClick={async () => {
                   try {
-                    await axios.put(`${API_BASE_URL}/api/updateEmailAndNumberById/${editRow.id}`, {
+                    await axios.put(`${REACT_API_BASE_URL}api/updateEmailAndNumberById/${editRow.id}`, {
                       email: editRow.email,
                       teacherContact: editRow.teacherContact,
                     });
