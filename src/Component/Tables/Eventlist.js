@@ -152,7 +152,7 @@ const fetchData = useCallback(async () => {
 
 
 if (role === "admin") {
-  apiUrl = `${REACT_API_BASE_URL}/register/alldata`;
+  apiUrl = `${REACT_API_BASE_URL}api/register/alldata`;
   // apiUrl = "http://localhost:5000/api/register/alldata";
 } else if (role === "subadmin") {
   const district = "delhi"; // Replace with actual district dynamically
@@ -164,7 +164,7 @@ if (role === "admin") {
 }
 
 
-    const res = await axios.get(apiUrl);
+    const res = await axios.get(`${REACT_API_BASE_URL}/`);
     console.log("API Response:", res.data);
 
     // Handle different response structures
